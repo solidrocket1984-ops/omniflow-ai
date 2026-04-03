@@ -1,0 +1,45 @@
+{
+  "name": "Integration",
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "webhook",
+        "email",
+        "crm",
+        "google_sheets",
+        "whatsapp",
+        "zapier",
+        "custom"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "config": {
+      "type": "string",
+      "description": "JSON config"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "error"
+      ],
+      "default": "inactive"
+    },
+    "last_sync_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "account_id",
+    "type",
+    "name"
+  ]
+}

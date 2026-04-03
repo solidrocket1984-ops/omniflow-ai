@@ -1,0 +1,40 @@
+{
+  "name": "LeadActivity",
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "type": "string"
+    },
+    "lead_id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "note",
+        "call",
+        "email",
+        "meeting",
+        "status_change",
+        "score_change",
+        "assignment",
+        "system"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "performed_by": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "account_id",
+    "lead_id",
+    "type",
+    "description"
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "name": "Lead",
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "webchat",
+        "whatsapp",
+        "instagram",
+        "email",
+        "manual",
+        "import",
+        "other"
+      ],
+      "default": "webchat"
+    },
+    "channel": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "contacted",
+        "qualified",
+        "proposal",
+        "negotiation",
+        "won",
+        "lost",
+        "disqualified"
+      ],
+      "default": "new"
+    },
+    "stage": {
+      "type": "string",
+      "enum": [
+        "awareness",
+        "interest",
+        "consideration",
+        "decision",
+        "retention"
+      ],
+      "default": "awareness"
+    },
+    "score": {
+      "type": "number",
+      "default": 0
+    },
+    "urgency": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "default": "medium"
+    },
+    "detected_intent": {
+      "type": "string"
+    },
+    "conversation_summary": {
+      "type": "string"
+    },
+    "next_step": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "assigned_to": {
+      "type": "string"
+    },
+    "campaign_id": {
+      "type": "string"
+    },
+    "conversation_id": {
+      "type": "string"
+    },
+    "last_interaction_at": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "is_opportunity": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "account_id",
+    "name"
+  ]
+}

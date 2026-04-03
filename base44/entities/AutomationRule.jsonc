@@ -1,0 +1,52 @@
+{
+  "name": "AutomationRule",
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "trigger_type": {
+      "type": "string",
+      "enum": [
+        "new_lead",
+        "lead_score_change",
+        "conversation_escalated",
+        "new_conversation",
+        "lead_status_change",
+        "scheduled"
+      ]
+    },
+    "conditions": {
+      "type": "string",
+      "description": "JSON string of conditions"
+    },
+    "action_type": {
+      "type": "string",
+      "enum": [
+        "send_notification",
+        "send_email",
+        "assign_lead",
+        "change_status",
+        "export_data",
+        "webhook"
+      ]
+    },
+    "action_config": {
+      "type": "string",
+      "description": "JSON string of action config"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "account_id",
+    "name",
+    "trigger_type",
+    "action_type"
+  ]
+}

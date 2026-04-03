@@ -1,0 +1,65 @@
+{
+  "name": "Campaign",
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "objective": {
+      "type": "string"
+    },
+    "channel": {
+      "type": "string",
+      "enum": [
+        "webchat",
+        "whatsapp",
+        "instagram",
+        "email",
+        "other"
+      ]
+    },
+    "message": {
+      "type": "string"
+    },
+    "cta": {
+      "type": "string"
+    },
+    "promotion": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "string"
+    },
+    "end_date": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "paused",
+        "completed"
+      ],
+      "default": "draft"
+    },
+    "leads_generated": {
+      "type": "number",
+      "default": 0
+    },
+    "conversations_count": {
+      "type": "number",
+      "default": 0
+    },
+    "landing_url": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "account_id",
+    "name"
+  ]
+}

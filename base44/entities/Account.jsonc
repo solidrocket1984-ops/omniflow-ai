@@ -1,0 +1,129 @@
+{
+  "name": "Account",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Business/company name"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-friendly identifier"
+    },
+    "sector": {
+      "type": "string",
+      "enum": [
+        "hospitality",
+        "retail",
+        "healthcare",
+        "real_estate",
+        "education",
+        "professional_services",
+        "ecommerce",
+        "saas",
+        "other"
+      ],
+      "description": "Industry vertical"
+    },
+    "plan": {
+      "type": "string",
+      "enum": [
+        "basic",
+        "pro",
+        "premium",
+        "enterprise"
+      ],
+      "default": "basic"
+    },
+    "subscription_status": {
+      "type": "string",
+      "enum": [
+        "trial",
+        "active",
+        "past_due",
+        "cancelled",
+        "suspended"
+      ],
+      "default": "trial"
+    },
+    "max_users": {
+      "type": "number",
+      "default": 3
+    },
+    "max_agents": {
+      "type": "number",
+      "default": 1
+    },
+    "max_conversations_monthly": {
+      "type": "number",
+      "default": 500
+    },
+    "features_enabled": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of enabled feature flags"
+    },
+    "channels_enabled": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Enabled channels: webchat, whatsapp, instagram, etc."
+    },
+    "contact_email": {
+      "type": "string"
+    },
+    "contact_phone": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "timezone": {
+      "type": "string",
+      "default": "Europe/Madrid"
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [
+        "es"
+      ]
+    },
+    "logo_url": {
+      "type": "string"
+    },
+    "brand_color": {
+      "type": "string"
+    },
+    "onboarding_completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "onboarding_step": {
+      "type": "number",
+      "default": 0
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "trial_ends_at": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "plan"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "super_admin",
+        "account_admin",
+        "manager",
+        "agent_user",
+        "readonly_client"
+      ],
+      "default": "agent_user"
+    },
+    "account_id": {
+      "type": "string",
+      "description": "Linked tenant account"
+    },
+    "job_title": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "avatar_url": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "last_login": {
+      "type": "string"
+    },
+    "preferences": {
+      "type": "string",
+      "description": "JSON string of user preferences"
+    }
+  }
+}

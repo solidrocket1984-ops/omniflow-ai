@@ -1,0 +1,77 @@
+{
+  "name": "Conversation",
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "type": "string"
+    },
+    "channel": {
+      "type": "string",
+      "enum": [
+        "webchat",
+        "whatsapp",
+        "instagram",
+        "email",
+        "other"
+      ],
+      "default": "webchat"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "waiting",
+        "escalated",
+        "resolved",
+        "archived"
+      ],
+      "default": "active"
+    },
+    "contact_name": {
+      "type": "string"
+    },
+    "contact_email": {
+      "type": "string"
+    },
+    "contact_phone": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "detected_intent": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "lead_id": {
+      "type": "string"
+    },
+    "campaign_id": {
+      "type": "string"
+    },
+    "assigned_to": {
+      "type": "string"
+    },
+    "messages_count": {
+      "type": "number",
+      "default": 0
+    },
+    "last_message_at": {
+      "type": "string"
+    },
+    "escalated_at": {
+      "type": "string"
+    },
+    "resolved_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "account_id"
+  ]
+}

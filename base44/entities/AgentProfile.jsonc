@@ -1,0 +1,119 @@
+{
+  "name": "AgentProfile",
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "type": "string",
+      "description": "Linked account"
+    },
+    "business_name": {
+      "type": "string"
+    },
+    "business_description": {
+      "type": "string"
+    },
+    "business_history": {
+      "type": "string"
+    },
+    "value_proposition": {
+      "type": "string"
+    },
+    "tone": {
+      "type": "string",
+      "enum": [
+        "professional",
+        "friendly",
+        "casual",
+        "formal",
+        "empathetic",
+        "energetic"
+      ],
+      "default": "professional"
+    },
+    "commercial_style": {
+      "type": "string",
+      "enum": [
+        "consultative",
+        "direct",
+        "soft_sell",
+        "educational",
+        "aggressive"
+      ],
+      "default": "consultative"
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [
+        "es"
+      ]
+    },
+    "greeting_message": {
+      "type": "string"
+    },
+    "fallback_message": {
+      "type": "string"
+    },
+    "escalation_message": {
+      "type": "string"
+    },
+    "escalation_rules": {
+      "type": "string",
+      "description": "When to escalate to human"
+    },
+    "forbidden_topics": {
+      "type": "string",
+      "description": "Topics the agent must never discuss"
+    },
+    "forbidden_phrases": {
+      "type": "string",
+      "description": "Phrases the agent must never say"
+    },
+    "custom_instructions": {
+      "type": "string"
+    },
+    "pricing_rules": {
+      "type": "string",
+      "description": "Allowed price ranges or rules"
+    },
+    "objection_handling": {
+      "type": "string"
+    },
+    "lead_qualification_criteria": {
+      "type": "string",
+      "description": "What makes a hot lead"
+    },
+    "contact_info": {
+      "type": "string"
+    },
+    "business_hours": {
+      "type": "string"
+    },
+    "service_areas": {
+      "type": "string"
+    },
+    "active_promotions": {
+      "type": "string"
+    },
+    "documents_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "is_published": {
+      "type": "boolean",
+      "default": false
+    },
+    "version": {
+      "type": "number",
+      "default": 1
+    }
+  },
+  "required": [
+    "account_id",
+    "business_name"
+  ]
+}
