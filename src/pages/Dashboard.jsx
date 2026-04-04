@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
-import { supabase } from '@/lib/supabaseClient';
+import { fetchAccounts } from '@/lib/supabaseClient';
 import PageHeader from '@/components/PageHeader';
 import StatCard from '@/components/StatCard';
 import LoadingScreen from '@/components/LoadingScreen';
@@ -72,19 +72,18 @@ export default function Dashboard() {
     // TEMP SUPABASE TEST
     async function testSupabaseConnection() {
       setSupabaseTestStatus('Probando Supabase...');
-      const { data, error } = await supabase.from('accounts').select('id').limit(1);
+      try {
+        const data = await fetchAccounts();
 
-      if (error) {
+        if (!data?.length) {
+          setSupabaseTestStatus('Conexión correcta, pero no hay datos');
+          return;
+        }
+
+        setSupabaseTestStatus('Conexión correcta');
+      } catch (error) {
         setSupabaseTestStatus(`Error de conexión: ${error.message}`);
-        return;
       }
-
-      if (!data?.length) {
-        setSupabaseTestStatus('Conexión correcta, pero no hay datos');
-        return;
-      }
-
-      setSupabaseTestStatus('Conexión correcta');
     }
 
     testSupabaseConnection();
