@@ -103,7 +103,8 @@ export default function Dashboard() {
       {/* TEMP SUPABASE TEST */}
       <div className="mb-4">
         <div className="inline-block text-xs text-muted-foreground bg-muted/50 border border-border rounded-md px-3 py-2">
-          {supabaseTestStatus}
+          <div className="font-semibold text-[10px] uppercase tracking-wide">TEMP SUPABASE TEST</div>
+          <div>{supabaseTestStatus}</div>
         </div>
       </div>
       
