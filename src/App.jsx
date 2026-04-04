@@ -24,7 +24,7 @@ import Onboarding from './pages/Onboarding';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminAccounts from './pages/admin/AdminAccounts';
 import AdminAccountDetail from './pages/admin/AdminAccountDetail';
-import SupabaseTest from './pages/SupabaseTest';
+
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -71,7 +71,7 @@ const AuthenticatedApp = () => {
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/admin/accounts" element={<AdminAccounts />} />
         <Route path="/admin/accounts/:id" element={<AdminAccountDetail />} />
-        <Route path="/supabase-test" element={<SupabaseTest />} />
+
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
