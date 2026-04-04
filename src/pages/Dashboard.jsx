@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
+import { supabase } from '@/lib/supabaseClient';
 import PageHeader from '@/components/PageHeader';
 import StatCard from '@/components/StatCard';
 import LoadingScreen from '@/components/LoadingScreen';
@@ -13,6 +14,8 @@ export default function Dashboard() {
   const { user, account } = useOutletContext();
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
+  // TEMP SUPABASE TEST
+  const [supabaseTestStatus, setSupabaseTestStatus] = useState('Probando Supabase...');
 
   useEffect(() => {
     async function loadStats() {
@@ -65,6 +68,28 @@ export default function Dashboard() {
     loadStats();
   }, [user]);
 
+  useEffect(() => {
+    // TEMP SUPABASE TEST
+    async function testSupabaseConnection() {
+      setSupabaseTestStatus('Probando Supabase...');
+      const { data, error } = await supabase.from('accounts').select('id').limit(1);
+
+      if (error) {
+        setSupabaseTestStatus(`Error de conexión: ${error.message}`);
+        return;
+      }
+
+      if (!data?.length) {
+        setSupabaseTestStatus('Conexión correcta, pero no hay datos');
+        return;
+      }
+
+      setSupabaseTestStatus('Conexión correcta');
+    }
+
+    testSupabaseConnection();
+  }, []);
+
   if (loading) return <LoadingScreen />;
 
   const greeting = `Hola, ${user?.full_name?.split(' ')[0] || 'Usuario'}`;
@@ -75,6 +100,13 @@ export default function Dashboard() {
         title={greeting}
         description={account ? `Panel de ${account.name}` : 'Panel general'}
       />
+
+      {/* TEMP SUPABASE TEST */}
+      <div className="mb-4">
+        <div className="inline-block text-xs text-muted-foreground bg-muted/50 border border-border rounded-md px-3 py-2">
+          {supabaseTestStatus}
+        </div>
+      </div>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <StatCard label="Conversaciones" value={stats?.totalConversations || 0} icon={MessageSquare} change="+12% vs. mes anterior" trend="up" />
